@@ -2,7 +2,7 @@
 
 ## 1. 目标与边界
 
-后端负责身份验证、用户数据隔离、任务业务规则、MySQL 持久化和可观测性。它使用 Java 17，采用模块化单体：模块可独立测试和演进，但以一个 Spring Boot 应用、一个镜像和一个数据库交付。
+后端负责身份验证、用户数据隔离、任务业务规则、MySQL 持久化和可观测性。它使用 Java 17、Spring Boot 4.1.0 和 MyBatis-Plus 3.5.17，采用模块化单体：模块可独立测试和演进，但以一个 Spring Boot 应用、一个镜像和一个数据库交付。
 
 本设计不引入通用 CRUD 代码生成器、分布式事务或消息队列。接口只服务 FlowBoard Web；未来移动端仍复用同一 REST API。
 
@@ -63,7 +63,7 @@ Controller → Application Service → Mapper / Domain Rule
 
 ### 5.1 实体与 Mapper
 
-- 实体位于各模块的 `persistence/entity`，使用明确的表名、主键和逻辑删除映射。
+- 使用 `mybatis-plus-spring-boot4-starter`；实体位于各模块的 `persistence/entity`，使用明确的表名、主键和逻辑删除映射。
 - 常规按主键读写使用 `BaseMapper<T>`；Service 不向 Controller 暴露 Entity。
 - `TaskMapper`、`ProjectMapper` 等复杂查询接口配套 XML，置于 `src/main/resources/mapper/<module>/`。
 - XML 仅保存 SQL；动态条件由明确参数对象表达，禁止拼接用户输入。

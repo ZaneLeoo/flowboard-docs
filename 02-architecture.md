@@ -40,7 +40,7 @@ flowchart TB
 | Web | Vue 3、TypeScript、Vite、vue-i18n | 组件化 C 端应用、中文文案管理与未来双语扩展。 |
 | 样式 | Tailwind CSS、自定义 CSS 变量 | 设计令牌和高度可控的响应式样式。 |
 | 基础交互 | Radix Vue | 仅使用无样式、可访问的 Dialog、Menu、Popover 等原语。 |
-| 后端 | Java 21、Spring Boot、Spring Security、MyBatis-Plus | REST API、鉴权、验证和数据持久化。 |
+| 后端 | Java 17、Spring Boot、Spring Security、MyBatis-Plus | REST API、鉴权、验证和数据持久化。 |
 | 数据库 | MySQL 8、Flyway | 关系数据与可版本化的结构迁移。 |
 | 交付 | Docker、Docker Compose、Nginx、Jenkins | 本地复现、镜像交付和自动部署。 |
 

@@ -16,6 +16,7 @@
 | [07-backend-detailed-design.md](07-backend-detailed-design.md) | 后端分层、鉴权、Mapper 与迁移细节 | 已建立 |
 | [08-frontend-detailed-design.md](08-frontend-detailed-design.md) | 前端路由、状态、组件和页面实现细节 | 已建立 |
 | [09-visual-direction.md](09-visual-direction.md) | AI 视觉方向稿与界面决策 | 已建立 |
+| [10-m1-project-bootstrap.md](10-m1-project-bootstrap.md) | M1 工程初始化记录与验收 | 已完成 |
 
 ## 维护规则
 

@@ -13,6 +13,9 @@
 | [04-ui-ux.md](04-ui-ux.md) | C 端视觉、交互与可访问性规范 | 已建立 |
 | [05-delivery-devops.md](05-delivery-devops.md) | Git、Docker、Jenkins 与部署方案 | 已建立 |
 | [06-quality-acceptance.md](06-quality-acceptance.md) | 测试策略、质量门禁与验收清单 | 已建立 |
+| [07-backend-detailed-design.md](07-backend-detailed-design.md) | 后端分层、鉴权、Mapper 与迁移细节 | 已建立 |
+| [08-frontend-detailed-design.md](08-frontend-detailed-design.md) | 前端路由、状态、组件和页面实现细节 | 已建立 |
+| [09-visual-direction.md](09-visual-direction.md) | AI 视觉方向稿与界面决策 | 已建立 |
 
 ## 维护规则
 

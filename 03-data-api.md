@@ -29,6 +29,7 @@ erDiagram
     string color
     boolean archived
     datetime created_at
+    datetime updated_at
   }
   TASKS {
     uuid id PK
@@ -40,8 +41,11 @@ erDiagram
     date due_date
     boolean in_today
     int sort_order
+    int version
     datetime completed_at
     datetime deleted_at
+    datetime created_at
+    datetime updated_at
   }
   TAGS {
     uuid id PK

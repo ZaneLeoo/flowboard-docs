@@ -24,6 +24,7 @@
 | [15-m4-project-task-today-design.md](15-m4-project-task-today-design.md) | M4 项目、任务与 Today 数据/API/交互契约 | 后端已完成，前端待实现 |
 | [16-m4-project-task-api-completion.md](16-m4-project-task-api-completion.md) | M4.1 项目、任务与 Today 后端验收记录 | 已完成 |
 | [17-m4-desktop-today-completion.md](17-m4-desktop-today-completion.md) | M4.2 桌面 Today 工作台实现与验收记录 | 已完成 |
+| [18-shadcn-vue-component-system.md](18-shadcn-vue-component-system.md) | shadcn-vue 组件体系与视觉改造记录 | 已完成 |
 
 ## 维护规则
 

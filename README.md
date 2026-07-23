@@ -17,6 +17,8 @@
 | [08-frontend-detailed-design.md](08-frontend-detailed-design.md) | 前端路由、状态、组件和页面实现细节 | 已建立 |
 | [09-visual-direction.md](09-visual-direction.md) | AI 视觉方向稿与界面决策 | 已建立 |
 | [10-m1-project-bootstrap.md](10-m1-project-bootstrap.md) | M1 工程初始化记录与验收 | 已完成 |
+| [11-m2-authentication-and-mysql.md](11-m2-authentication-and-mysql.md) | M2 认证与 MySQL 详细设计 | 已完成 |
+| [12-m2-authentication-completion.md](12-m2-authentication-completion.md) | M2 实现结果与验收记录 | 已完成 |
 
 ## 维护规则
 

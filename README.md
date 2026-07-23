@@ -20,6 +20,7 @@
 | [11-m2-authentication-and-mysql.md](11-m2-authentication-and-mysql.md) | M2 认证与 MySQL 详细设计 | 已完成 |
 | [12-m2-authentication-completion.md](12-m2-authentication-completion.md) | M2 实现结果与验收记录 | 已完成 |
 | [13-m3-frontend-auth-and-workspace.md](13-m3-frontend-auth-and-workspace.md) | M3 前端认证与工作区设计 | 实施中 |
+| [14-design-screen-spec.md](14-design-screen-spec.md) | 设计令牌、Logo 与 MVP 页面/组件规范 | 已确认，待实现 |
 
 ## 维护规则
 

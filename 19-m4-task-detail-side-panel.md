@@ -23,6 +23,7 @@
 - `ScrollArea`：任务详情的独立内容滚动区。
 - `Separator`：任务属性与备注区之间的语义分隔。
 - `Tabs`、`Popover`：Today 分组切换、任务新增入口与详情操作菜单。
+- `Calendar`：任务编辑与详情的截止日期选择；项目内 `DatePicker` 只负责将 `YYYY-MM-DD` 数据契约与官方日历组合连接。
 
 后续的选择顺序固定为：已有 FlowBoard shadcn-vue 组件 → shadcn-vue 官方 CLI 新增组件 → 官方没有对应原语时才用 Tailwind CSS 组合。
 

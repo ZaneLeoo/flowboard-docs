@@ -10,8 +10,8 @@ FlowBoard 当前所有已实现页面统一采用 shadcn-vue 的“组件源码�
 
 - 新增 `components.json`，明确 `@/components/ui`、`@/lib/utils` 等 shadcn-vue 路径约定。
 - `radix-vue` 替换为 `reka-ui`；新增 `class-variance-authority`、`clsx`、`tailwind-merge`、`tw-animate-css`、`lucide-vue-next` 与 `vue-sonner`。
-- 组件源码位于 `flowboard-web/src/components/ui/`：`Button`、`Input`、`Textarea`、`Label`、`Checkbox`、`Dialog`、`Select`、`Tabs`、`Popover`、`Card`、`ScrollArea`、`Separator`、`Sonner` 与确认对话框组合件。
-- 登录、注册、Today、项目编辑、任务编辑、任务详情和删除确认均已接入该组件层；任务详情的滚动和信息分隔使用 `ScrollArea`、`Separator`，Today 的内容卡片使用 `Card`，Today 分组和菜单使用 `Tabs`、`Popover`。
+- 组件源码位于 `flowboard-web/src/components/ui/`：`Button`、`Input`、`Textarea`、`Label`、`Checkbox`、`Dialog`、`Select`、`Tabs`、`Popover`、`Calendar`、`DatePicker`、`Card`、`ScrollArea`、`Separator`、`Sonner` 与确认对话框组合件。
+- 登录、注册、Today、项目编辑、任务编辑、任务详情和删除确认均已接入该组件层；任务详情的滚动和信息分隔使用 `ScrollArea`、`Separator`，Today 的内容卡片使用 `Card`，Today 分组和菜单使用 `Tabs`、`Popover`，任务编辑和详情的截止日期统一使用官方 `Calendar` 组合的 `DatePicker`。
 - 原手写 `AppButton`、手写 Teleport 弹窗、原生 `select`/`checkbox`、浏览器 `confirm` 和页面内临时 Toast 均已移除。
 
 ## 3. FlowBoard 视觉约束

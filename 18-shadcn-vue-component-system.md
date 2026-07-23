@@ -10,8 +10,8 @@ FlowBoard 当前所有已实现页面统一采用 shadcn-vue 的“组件源码�
 
 - 新增 `components.json`，明确 `@/components/ui`、`@/lib/utils` 等 shadcn-vue 路径约定。
 - `radix-vue` 替换为 `reka-ui`；新增 `class-variance-authority`、`clsx`、`tailwind-merge`、`tw-animate-css`、`lucide-vue-next` 与 `vue-sonner`。
-- 组件源码位于 `flowboard-web/src/components/ui/`：`Button`、`Input`、`Textarea`、`Label`、`Checkbox`、`Dialog`、`Select`、`Sonner` 与确认对话框组合件。
-- 登录、注册、Today、项目编辑、任务编辑、任务详情和删除确认均已接入该组件层。
+- 组件源码位于 `flowboard-web/src/components/ui/`：`Button`、`Input`、`Textarea`、`Label`、`Checkbox`、`Dialog`、`Select`、`Tabs`、`Popover`、`Card`、`ScrollArea`、`Separator`、`Sonner` 与确认对话框组合件。
+- 登录、注册、Today、项目编辑、任务编辑、任务详情和删除确认均已接入该组件层；任务详情的滚动和信息分隔使用 `ScrollArea`、`Separator`，Today 的内容卡片使用 `Card`，Today 分组和菜单使用 `Tabs`、`Popover`。
 - 原手写 `AppButton`、手写 Teleport 弹窗、原生 `select`/`checkbox`、浏览器 `confirm` 和页面内临时 Toast 均已移除。
 
 ## 3. FlowBoard 视觉约束
@@ -31,4 +31,4 @@ FlowBoard 当前所有已实现页面统一采用 shadcn-vue 的“组件源码�
 
 ## 5. 后续原则
 
-后续新增界面不得再手写新的基础按钮、输入框、弹窗、选择器或通知组件；优先从 `src/components/ui/` 复用。如需新交互，先通过 shadcn-vue/ Reka 的原语生成或组合，再应用 FlowBoard 的令牌与视觉约束。
+后续新增界面不得再手写新的基础按钮、输入框、弹窗、选择器、卡片、滚动容器、分隔线或通知组件；优先从 `src/components/ui/` 复用。若当前目录没有对应组件，先使用 shadcn-vue 官方 CLI 生成；官方没有对应原语时，才允许以 Tailwind CSS 组合实现，并复用 FlowBoard 的令牌与视觉约束。

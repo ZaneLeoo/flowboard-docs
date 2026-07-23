@@ -23,6 +23,7 @@
 | [14-design-screen-spec.md](14-design-screen-spec.md) | 设计令牌、Logo 与 MVP 页面/组件规范 | 已确认，待实现 |
 | [15-m4-project-task-today-design.md](15-m4-project-task-today-design.md) | M4 项目、任务与 Today 数据/API/交互契约 | 后端已完成，前端待实现 |
 | [16-m4-project-task-api-completion.md](16-m4-project-task-api-completion.md) | M4.1 项目、任务与 Today 后端验收记录 | 已完成 |
+| [17-m4-desktop-today-completion.md](17-m4-desktop-today-completion.md) | M4.2 桌面 Today 工作台实现与验收记录 | 已完成 |
 
 ## 维护规则
 

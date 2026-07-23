@@ -4,7 +4,7 @@
 
 本文将已确认的 v2 视觉方向转为可实现、可验收的界面约束。覆盖 MVP 的认证、首次工作区、Today、项目和任务创建/详情；不新增 PRD 外的业务能力。
 
-视觉基线见 [09-visual-direction.md](09-visual-direction.md)。当前状态为**已确认，待实现**。
+视觉基线见 [09-visual-direction.md](09-visual-direction.md)；项目、任务和 Today 的字段/API/交互细节见 [15-m4-project-task-today-design.md](15-m4-project-task-today-design.md)。当前状态为**已确认，待实现**。
 
 ## 2. 基础令牌
 

@@ -84,11 +84,11 @@ Flyway 是唯一的数据库结构变更入口，迁移文件使用：
 V001__create_users_and_workspaces.sql
 V002__create_refresh_tokens.sql
 V003__create_projects.sql
-V004__create_tasks_and_tags.sql
+V004__create_tasks.sql
 ```
 
 - 已进入任何共享环境的迁移不可修改；修复使用新的迁移文件。
-- 每张业务表都有 `created_at`、`updated_at`；任务额外有 `deleted_at`、`completed_at` 和 `version`。
+- 每张业务表都有 `created_at`、`updated_at`；任务额外有 `today_date`、`today_bucket`、`deleted_at`、`completed_at` 和 `version`。标签在项目/任务核心链路稳定后，以独立迁移加入。
 - 每个迁移在本地空库、升级库和 CI 集成测试中执行。
 
 ## 7. HTTP 设计细节

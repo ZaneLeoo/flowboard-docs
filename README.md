@@ -21,6 +21,7 @@
 | [12-m2-authentication-completion.md](12-m2-authentication-completion.md) | M2 实现结果与验收记录 | 已完成 |
 | [13-m3-frontend-auth-and-workspace.md](13-m3-frontend-auth-and-workspace.md) | M3 前端认证与工作区设计 | 实施中 |
 | [14-design-screen-spec.md](14-design-screen-spec.md) | 设计令牌、Logo 与 MVP 页面/组件规范 | 已确认，待实现 |
+| [15-m4-project-task-today-design.md](15-m4-project-task-today-design.md) | M4 项目、任务与 Today 数据/API/交互契约 | 已确认，待实现 |
 
 ## 维护规则
 

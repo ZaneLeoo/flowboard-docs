@@ -6,9 +6,8 @@
 erDiagram
   USERS ||--|| WORKSPACES : owns
   WORKSPACES ||--o{ PROJECTS : contains
-  PROJECTS ||--o{ TASKS : contains
-  TASKS ||--o{ TASK_TAGS : has
-  TAGS ||--o{ TASK_TAGS : labels
+  WORKSPACES ||--o{ TASKS : owns
+  PROJECTS o|--o{ TASKS : groups
 
   USERS {
     uuid id PK
@@ -26,45 +25,38 @@ erDiagram
     uuid id PK
     uuid workspace_id FK
     string name
+    text description
     string color
-    boolean archived
+    datetime archived_at
     datetime created_at
     datetime updated_at
   }
   TASKS {
     uuid id PK
-    uuid project_id FK
+    uuid workspace_id FK
+    uuid project_id FK "nullable"
     string title
     text description
     string status
     string priority
     date due_date
-    boolean in_today
-    int sort_order
+    date today_date
+    string today_bucket
+    bigint sort_order
     int version
     datetime completed_at
     datetime deleted_at
     datetime created_at
     datetime updated_at
   }
-  TAGS {
-    uuid id PK
-    uuid workspace_id FK
-    string name
-    string color
-  }
-  TASK_TAGS {
-    uuid task_id FK
-    uuid tag_id FK
-  }
 ```
 
-所有主键使用 UUID。时间以 UTC 保存、由前端按用户时区显示；日期型截止日按用户本地日期解释。
+所有主键使用 UUID。任务即使暂未归入项目，也必须属于当前工作空间；`project_id` 因此允许为空。`status` 是任务工作流状态（`TODO`、`IN_PROGRESS`、`DONE`），`today_bucket` 是 Today 页面当天的显示分组（`FOCUS`、`PLAN`、`LATER`），二者不能混用。时间以 UTC 保存、由前端按用户时区显示；日期型截止日和 `today_date` 按用户本地日期解释。标签与任务标签关系不属于 M4 首批实现，后续以独立迁移加入。
 
 ## 2. REST 约定
 
 - 基础路径：`/api/v1`。
-- JSON 字段使用 `camelCase`；日期为 ISO 8601。
+- JSON 字段使用 `camelCase`；日期使用 `YYYY-MM-DD`，时间使用 ISO 8601。
 - 写操作必须带 `Authorization: Bearer <access-token>`。
 - 成功响应直接返回资源；列表返回 `items`、`page`、`pageSize`、`total`。
 - 错误统一返回 `code`、`message`、`traceId` 与可选 `fieldErrors`。
@@ -87,13 +79,17 @@ erDiagram
 | `POST` | `/auth/refresh` | FR-AUTH-002 | 刷新 access token。 |
 | `GET` | `/me` | FR-AUTH-002 | 获取当前用户与工作空间摘要。 |
 | `GET, POST` | `/projects` | FR-PROJECT-001 | 列表与创建项目。 |
-| `GET, PATCH, DELETE` | `/projects/{projectId}` | FR-PROJECT-001 | 查询、编辑、归档项目。 |
-| `GET, POST` | `/projects/{projectId}/tasks` | FR-TASK-001 | 列表与创建任务。 |
+| `GET, PATCH` | `/projects/{projectId}` | FR-PROJECT-001 | 查询与编辑项目。 |
+| `POST` | `/projects/{projectId}/archive` | FR-PROJECT-001 | 归档项目；可撤销。 |
+| `POST` | `/projects/{projectId}/restore` | FR-PROJECT-001 | 恢复归档项目。 |
+| `GET` | `/projects/{projectId}/tasks` | FR-TASK-001 | 查看某项目的任务。 |
+| `GET, POST` | `/tasks` | FR-TASK-001 | 查询、创建任务；项目可选。 |
 | `GET, PATCH, DELETE` | `/tasks/{taskId}` | FR-TASK-001 | 查询、编辑、软删除任务。 |
 | `POST` | `/tasks/{taskId}/complete` | FR-TASK-001 | 完成任务。 |
 | `POST` | `/tasks/{taskId}/reopen` | FR-TASK-001 | 重新打开任务。 |
-| `PATCH` | `/tasks/reorder` | FR-TASK-002 | 调整状态及排序。 |
-| `GET` | `/today` | FR-TODAY-001 | 今日、逾期和手动置顶任务。 |
+| `PATCH` | `/tasks/{taskId}/today-placement` | FR-TODAY-001 | 加入、调整或移出当天分组。 |
+| `PATCH` | `/tasks/reorder` | FR-TASK-002 | 调整 Today 分组及排序。 |
+| `GET` | `/today` | FR-TODAY-001 | 今日、逾期、手动安排与已完成任务。 |
 | `GET` | `/insights/overview` | FR-INSIGHT-001 | 今日与项目统计。 |
 
 ## 4. 跨仓库变更规则

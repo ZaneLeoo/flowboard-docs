@@ -52,7 +52,7 @@ Controller → Application Service → Mapper / Domain Rule
 ## 4. 鉴权与数据隔离
 
 1. 注册时使用 BCrypt 哈希密码；数据库从不保存明文或可逆密码。
-2. 登录后返回短期 access token 与长期 refresh token；refresh token 仅保存其哈希及过期时间。
+2. 登录后在 JSON 响应中返回短期 access token；长期 refresh token 仅通过 `HttpOnly` Cookie 下发，数据库只保存其哈希及过期时间。
 3. `JwtAuthenticationFilter` 解析 access token，并将 `userId` 写入安全上下文。
 4. 每个资源读取/写入均以 `userId` + `workspaceId` 作为查询条件或在 Service 层验证所有权。
 5. 无令牌返回 `401`；访问非本人资源统一返回 `404`，避免泄露资源存在性。
@@ -82,9 +82,9 @@ Flyway 是唯一的数据库结构变更入口，迁移文件使用：
 
 ```text
 V001__create_users_and_workspaces.sql
-V002__create_projects.sql
-V003__create_tasks_and_tags.sql
-V004__add_refresh_tokens.sql
+V002__create_refresh_tokens.sql
+V003__create_projects.sql
+V004__create_tasks_and_tags.sql
 ```
 
 - 已进入任何共享环境的迁移不可修改；修复使用新的迁移文件。
@@ -115,7 +115,7 @@ V004__add_refresh_tokens.sql
 ## 8. 测试与可观测性
 
 - Service 单元测试覆盖所有权校验、归档限制、今日计算和完成/重开状态。
-- Mapper 集成测试使用临时 MySQL，验证 Flyway 迁移和关键 XML SQL。
+- Mapper 与认证集成测试使用 Testcontainers 启动临时 MySQL，验证 Flyway 迁移和关键 XML SQL；不使用 H2 模拟 MySQL。
 - Controller 测试覆盖认证、错误码和请求校验。
 - 暴露 `/actuator/health`；生产只开放需要的 Actuator 端点，健康检查不泄露数据库凭据或版本以外的信息。
 

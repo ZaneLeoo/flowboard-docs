@@ -27,6 +27,7 @@
 | [18-shadcn-vue-component-system.md](18-shadcn-vue-component-system.md) | shadcn-vue 组件体系与视觉改造记录 | 已完成 |
 | [19-m4-task-detail-side-panel.md](19-m4-task-detail-side-panel.md) | Today 任务详情并列面板与组件使用约束 | 已完成 |
 | [20-today-information-architecture.md](20-today-information-architecture.md) | Today 职责收敛与导航页面边界 | 已完成 |
+| [21-today-task-list-design.md](21-today-task-list-design.md) | Today 任务列表分组、行级样式与内联创建规范 | 已完成 |
 
 ## 维护规则
 

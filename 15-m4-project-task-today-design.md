@@ -74,7 +74,7 @@ M4 将已登录后的空状态工作区替换为真实、可持久化的项目�
 | --- | --- | --- |
 | `GET` | `/projects?archived=false&page=1&pageSize=50` | 仅允许 `pageSize` 1–100。 | 项目摘要分页。 |
 | `POST` | `/projects` | `name`、`color` 必填，`description` 可选。 | `201` + 项目详情。 |
-| `GET` | `/projects/{projectId}` | — | 项目详情与任务计数。 |
+| `GET` | `/projects/{projectId}` | — | 项目详情。 |
 | `PATCH` | `/projects/{projectId}` | 可更新名称、描述、颜色。 | 项目详情。 |
 | `POST` | `/projects/{projectId}/archive` | — | `200` + 归档项目。 |
 | `POST` | `/projects/{projectId}/restore` | — | `200` + 活跃项目。 |
